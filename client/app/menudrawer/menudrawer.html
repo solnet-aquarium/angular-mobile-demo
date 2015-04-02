@@ -1,0 +1,12 @@
+
+
+<div class="menudrawer">
+
+  <div class="menudrawer-item">
+    <button ng-repeat="item in items track by $index" ng-click="clickItemState(item.state)">{{item.name}}</button>
+    <button ng-click="logout()">Logout</button>
+  </div>
+
+</div>
+
+

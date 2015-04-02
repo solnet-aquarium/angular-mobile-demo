@@ -1,0 +1,56 @@
+
+@keyframes slideOutLeftPartial {
+  to      { .transform(translateX(-40%)); opacity: 0.5; }
+}
+@keyframes slideInLeftPartial {
+  0%    { .transform(translateX(-40%)); opacity: 0.5; }
+  100%      { .transform(translateX(0)); opacity: 1; }
+}
+
+
+/* slide in from the bottom */
+@keyframes slideOutRight {
+  to      { .transform(translateX(100%)); }
+}
+@keyframes slideOutDown {
+  to      { .transform(translateY(100%)); }
+}
+@keyframes slideInUp {
+  from      { .transform(translateY(100%)); }
+  to      { .transform(translateY(0)); }
+}
+@keyframes slideOutLeft {
+  to      { .transform(translateX(-100%)); }
+}
+
+/* slide in from the right */
+@keyframes slideInRightStacked {
+  0%    { .transform(translateX(100%)); }
+  100%      { .transform(translateX(0)); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+  0%    { .transform(translateX(100%)); }
+  100%      { .transform(translateX(0)); }
+}
+
+/* slide in from the right */
+@keyframes slideInLeft {
+  0%    { .transform(translateX(-100%)); }
+  100%      { .transform(translateX(0)); }
+}
+
+
+@keyframes scaleUp {
+  from    { opacity: 0.3; .transform(scale(0.8)); }
+}
+
+@keyframes scaleDown {
+  from    { opacity: 1; .transform(scale(1)); }
+  to      { opacity: 0.3; .transform(scale(0.8)); }
+
+}
+
+
+

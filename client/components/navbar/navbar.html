@@ -1,0 +1,13 @@
+<header class="nav" ng-controller="NavbarCtrl">
+
+  <button class="nav-button nav-button-back" ng-show="enableBackButton" ng-click="historyBack()"><i class="fa fa-2x fa-arrow-left"></i></button>
+
+  <span class="nav-title">
+    <a href="/">
+      <h3>{{navigationTitle}}</h3>
+    </a>
+  </span>
+
+  <button class="nav-button nav-button-menu" ng-show="enableMenuButton" ng-click="toggleRightSidedrawer()"><i class="fa fa-2x fa-bars"></i></button>
+
+</header>

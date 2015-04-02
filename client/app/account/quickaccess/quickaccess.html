@@ -1,0 +1,37 @@
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>{{email}}</h3>
+    </div>
+  </div>
+
+  <div class="row pindisplay">
+    <div>{{pin}}</div>
+    <div>{{error}}</div>
+  </div>
+
+  <div class="row pininput">
+
+    <button class="pindigit" ng-click="addPinDigit(1)">1</button>
+    <button class="pindigit" ng-click="addPinDigit(2)">2</button>
+    <button class="pindigit" ng-click="addPinDigit(3)">3</button>
+    <button class="pindigit" ng-click="addPinDigit(4)">4</button>
+    <button class="pindigit" ng-click="addPinDigit(5)">5</button>
+    <button class="pindigit" ng-click="addPinDigit(6)">6</button>
+    <button class="pindigit" ng-click="addPinDigit(7)">7</button>
+    <button class="pindigit" ng-click="addPinDigit(8)">8</button>
+    <button class="pindigit" ng-click="addPinDigit(9)">9</button>
+    <button class="pindigit pindigit-last" ng-click="addPinDigit(0)">0</button>
+
+  </div>
+
+  <div class="row pinactions">
+    <button>Reset pin</button>
+    <button ng-click="clearPin()">Clear pin</button>
+  </div>
+
+</div>
