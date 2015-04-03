@@ -3,7 +3,7 @@
 <div class="pincontainer">
 
   <div class="row pintitle">
-    <md-button ng-click="back()" ><h3>{{::email}}</h3></md-button>
+    <md-button ng-click="::back()" ><h3>{{::email}}</h3></md-button>
   </div>
 
   <div class="row pindisplay">
@@ -13,27 +13,26 @@
     <i class="fa" ng-class="{'fa-circle': pin.length >= 3, 'fa-circle-o': pin.length < 3}"></i>
     <i class="fa" ng-class="{'fa-circle': pin.length >= 4, 'fa-circle-o': pin.length < 4}"></i>
 
-    <!--<div>{{error}}</div>-->
   </div>
 
   <div class="row pininput-container">
     <div class="pininput">
 
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(1)">1</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(2)">2</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(3)">3</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(4)">4</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(5)">5</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(6)">6</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(7)">7</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(8)">8</md-button>
-      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="throttlePinDigit(9)">9</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(1)">1</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(2)">2</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(3)">3</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(4)">4</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(5)">5</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(6)">6</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(7)">7</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(8)">8</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme" ng-click="::throttlePinDigit(9)">9</md-button>
 
       <md-button class="pinforgot md-button md-default-theme md-primary">Forgot pin</md-button>
 
-      <md-button class="pindigit md-accent md-button md-default-theme pindigit md-accent md-default-theme-last" ng-click="throttlePinDigit(0)">0</md-button>
+      <md-button class="pindigit md-accent md-button md-default-theme pindigit md-accent md-default-theme-last" ng-click="::throttlePinDigit(0)">0</md-button>
 
-      <md-button class="pinclear md-button md-default-theme" ng-click="clearPin()" ng-class="{'active': pin && pin.length}">Clear</md-button>
+      <md-button class="pinclear md-button md-default-theme" ng-click="::clearPin()" ng-class="{'active': pin && pin.length}">Clear</md-button>
 
     </div>
   </div>

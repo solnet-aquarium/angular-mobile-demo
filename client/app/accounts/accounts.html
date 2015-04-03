@@ -9,8 +9,8 @@
 
 <div class="mainlist">
 
-  <a href="/accountdetail/{{account.id}}" tooltip="{{account.info}}">
-    <md-button ng-repeat="account in accounts">{{ ::account.title}}</md-button>
+  <a href="/accountdetail/{{::account.id}}" tooltip="{{::account.info}}">
+    <md-button ng-repeat="account in ::accounts">{{ ::account.title}}</md-button>
   </a>
 
 </div>

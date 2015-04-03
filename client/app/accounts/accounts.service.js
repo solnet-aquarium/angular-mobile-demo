@@ -37,22 +37,6 @@ angular.module('trusteesApp')
         {
           id: 3,
           title: 'mmmmmmmm'
-        },
-        {
-          id: 3,
-          title: 'mmmmmmmm'
-        },
-        {
-          id: 3,
-          title: 'mmmmmmmm'
-        },
-        {
-          id: 3,
-          title: 'mmmmmmmm'
-        },
-        {
-          id: 3,
-          title: 'mmmmmmmm'
         }
       ]);
     }
