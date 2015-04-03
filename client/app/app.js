@@ -31,11 +31,11 @@ angular.module('trusteesApp', [
       '$delegate',
       function ($delegate) {
         return function(constructor, locals, later, indent) {
-          if (typeof constructor == "string") {
+          if (typeof constructor === 'string') {
             locals.$scope.controllerName =  constructor;
           }
           return $delegate(constructor, locals, later, indent);
-        }
+        };
       }]);
 
   })
@@ -88,12 +88,6 @@ angular.module('trusteesApp', [
       updatePageTransitionClasses(event, toState, toParams, fromState, fromParams);
     });
 
-    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
-
-
-    });
-
-
 
     function checkAuthOnStateChange(event, toState, toParams, fromState, fromParams){
       Auth.isLoggedInAsync(function(loggedIn) {
@@ -102,7 +96,6 @@ angular.module('trusteesApp', [
         }
       });
     }
-
 
 
     function updatePageTransitionClasses(event, toState, toParams, fromState, fromParams){
@@ -126,7 +119,7 @@ angular.module('trusteesApp', [
 
     $rootScope.resolveTransitionClasses = function(){
       return resolveTransitionClassesDeferred.promise;
-    }
+    };
 
 
 

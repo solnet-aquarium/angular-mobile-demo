@@ -14,7 +14,7 @@ angular.module('trusteesApp')
 
     $scope.throttlePinDigit = _.debounce(addPinDigit, 30, true);
 
-    var supportsVibrate = "vibrate" in navigator;
+    var supportsVibrate = 'vibrate' in navigator;
 
     return init();
 

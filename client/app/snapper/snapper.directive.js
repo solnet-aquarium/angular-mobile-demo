@@ -13,7 +13,7 @@ angular.module('trusteesApp')
         scope.openRight = false;
 
 
-        $log.debug(attrs['snapper']);
+        $log.debug(attrs.snapper);
 
         var openHandle = $rootScope.$on('snap:right:open', openRightSideDrawer);
         var closeHandle = $rootScope.$on('snap:right:close', closeRightSideDrawer);
