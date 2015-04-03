@@ -1,6 +1,6 @@
 <header class="nav" ng-controller="NavbarCtrl">
 
-  <md-button class="nav-button nav-button-back" ng-if="enableBackButton" ng-click="historyBack()"><i class="fa fa-2x fa-arrow-left"></i></md-button>
+  <md-button aria-label="Navigate back" class="nav-button nav-button-back" ng-if="enableBackButton" ng-click="historyBack()"><i class="fa fa-2x fa-arrow-left"></i></md-button>
 
   <span class="nav-title">
     <a href="/">
@@ -8,6 +8,6 @@
     </a>
   </span>
 
-  <md-button class="nav-button nav-button-menu" ng-if="enableMenuButton" ng-click="toggleRightSidedrawer()"><i class="fa fa-2x fa-bars"></i></md-button>
+  <md-button aria-label="Toggle side menu" class="nav-button nav-button-menu" ng-if="enableMenuButton" ng-click="toggleRightSidedrawer()"><i class="fa fa-2x fa-bars"></i></md-button>
 
 </header>

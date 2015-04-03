@@ -5,28 +5,37 @@
 
 .blocklist {
 
-  display: -webkit-flex;
-  display: flex;
-
-  -webkit-flex-direction: column;
-  flex-direction: column;
-
-  justify-content: center;
+  margin-top: 40px;
 
   width: 100%;
   height: 100%;
 
 }
 
+.blocklist-item-standard {
+  @media screen and (min-width: 600px) {
+    width: 400px;
+
+    position: relative;
+    left: 50%;
+
+    margin-left: -200px;
+  }
+
+  height: 50px;
+  width: 80%;
+  margin: 15px 10%;
+}
+
+.blocklist-border {
+  height: 20px;
+}
 
 .blocklist-item {
 
 
   button {
-    height: 50px;
-    width: 80%;
-
-    margin: 5% 10%;
+    &:extend(.blocklist-item-standard);
   }
 
   form {
@@ -34,9 +43,9 @@
     width: 100%;
 
     .form-group-input{
-      width: 80%;
-      height: 50px;
-      margin: 5% 10%;
+
+      &:extend(.blocklist-item-standard);
+
     }
   }
 

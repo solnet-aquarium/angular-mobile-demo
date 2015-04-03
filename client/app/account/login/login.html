@@ -1,13 +1,6 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="blocklist">
-
-  <div class="blocklist-item" ng-if="previousLogins" ng-repeat="previousLogin in previousLogins track by $index">
-    <md-button class="md-primary md-hue-1 md-button md-default-theme" ng-click="quickAccess(previousLogin)" >{{ ::previousLogin}}</md-button>
-  </div>
-
-  <div class="blocklist-border"></div>
-
   <div class="blocklist-item">
 
     <form class="form form-login" name="form" novalidate>
@@ -16,9 +9,8 @@
         <md-input-container>
           <label>Email</label>
           <input name="email" ng-model="user.email" required minlength="1">
-          <div ng-messages="userForm.lastName.$error" ng-show="userForm.bio.$dirty">
-            <div ng-message="required">This is required!</div>
-            <div ng-message="minlength">That's too short!</div>
+          <div ng-messages="userForm.lastName.$error" ng-show="form.$submitted && form.email.$invalid">
+            <div class="message" ng-message="required">This is required.</div>
           </div>
         </md-input-container>
       </div>
@@ -35,13 +27,17 @@
         <p class="help-block">{{ errors.other }}</p>
       </div>
 
-
       <md-button class="md-raised md-primary md-button md-default-theme" ng-click="login(form)" type="submit">
         Login
       </md-button>
-
-
     </form>
   </div>
+
+
+  <div class="blocklist-item" ng-if="previousLogins" ng-repeat="previousLogin in previousLogins track by $index">
+    <md-button class="md-button md-raised" ng-click="quickAccess(previousLogin)" >{{ ::previousLogin}}</md-button>
+  </div>
+
+
 
 </div>

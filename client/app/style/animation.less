@@ -43,10 +43,20 @@
 
 
 @keyframes scaleUp {
-  from    { opacity: 0.3; .transform(scale(0.8)); }
+  from    { .transform(scale(0.8)); }
 }
 
 @keyframes scaleDown {
+  from    { .transform(scale(1)); }
+  to      { .transform(scale(0.8)); }
+
+}
+
+@keyframes scaleUpOpacity {
+  from    { opacity: 0.3; .transform(scale(0.8)); }
+}
+
+@keyframes scaleDownOpacity {
   from    { opacity: 1; .transform(scale(1)); }
   to      { opacity: 0.3; .transform(scale(0.8)); }
 
