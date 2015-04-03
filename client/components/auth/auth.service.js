@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log) {
+  .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q, $log, $timeout) {
     var currentUser = {};
 
     if($cookieStore.get('token')) {
@@ -55,6 +55,11 @@ angular.module('trusteesApp')
           $cookieStore.put('token', data.token);
           currentUser = User.get();
           deferred.resolve(data);
+
+          $timeout(function(){
+            $rootScope.$emit('login:success');
+          });
+
 
           var previousLogin = $cookieStore.get('previouslogin') || '';
           if(previousLogin.split(',').indexOf(user.email) === -1){

@@ -6,7 +6,7 @@ angular.module('trusteesApp')
 
 
       .state('login', {
-        navigationTitle: 'Trustees - Login',
+        navigationTitle: 'Trustees',
         url: '/login',
         enableMenuButton: false,
         templateUrl: 'app/account/login/login.html',
@@ -36,6 +36,7 @@ angular.module('trusteesApp')
 
       .state('settings', {
         url: '/settings',
+        navigationTitle: 'Settings',
         enableMenuButton: true,
         enableBackButton: true,
         templateUrl: 'app/account/settings/settings.html',

@@ -1,19 +1,20 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('QuickaccessCtrl', function ($scope, Auth, $location, $log, $state, $timeout) {
+  .controller('QuickaccessCtrl', function ($scope, Auth, $location, $log, $state, $timeout, $rootScope, $window) {
 
 
     var self = this;
 
     $scope.email = undefined;
     $scope.error = undefined;
-    $scope.addPinDigit = addPinDigit;
-    $scope.clearPin = clearPin;
+    $scope.clearPin = _.debounce(clearPin, 60, true);
+    $scope.back = _.debounce(back, 50, true);
     $scope.pin = '';
 
-    var supportsVibrate = "vibrate" in navigator;
+    $scope.throttlePinDigit = _.debounce(addPinDigit, 30, true);
 
+    var supportsVibrate = "vibrate" in navigator;
 
     return init();
 
@@ -52,7 +53,18 @@ angular.module('trusteesApp')
     /**
      *
      */
+    function back(){
+      $log.debug('quick access ctrl back');
+
+      $window.history.back();
+    }
+
+    /**
+     *
+     */
     function addPinDigit(digit){
+
+      $log.debug('adding pin digit');
 
       if($scope.pin.length > 4){
         return;
@@ -83,18 +95,11 @@ angular.module('trusteesApp')
       .then( function() {
         // Logged in, redirect to home
 
-          //TODO should replace quickaccess url history
-          //TODO should replace quickaccess url history
-          //TODO should replace quickaccess url history
-          //TODO should replace quickaccess url history
-          //TODO should replace quickaccess url history
-          //TODO should replace quickaccess url history
-
-
         $timeout(function(){
           window.history.replaceState( {} , 'main', '/' );
         });
 
+        $rootScope.temporaryLoginUser = undefined;
 
         Auth.setQuickAccessUser(undefined);
       })

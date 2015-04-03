@@ -1,36 +1,50 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('LoginCtrl', function ($scope, Auth, $state) {
+  .controller('LoginCtrl', function ($scope, Auth, $state, $rootScope) {
 
     $scope.errors = {};
 
     $scope.previousLogins = Auth.getPreviousUsers();
 
     $scope.user = {};
-    $scope.user.email = undefined;
-    $scope.user.password = undefined;
+    $scope.user.email = $rootScope.temporaryLoginUser || '';
 
 
-    $scope.login = function(form) {
+    $scope.login = _.debounce(login, 50, true);
+    $scope.quickAccess = _.debounce(quickAccess, 50, true);
+
+
+    return;
+
+    /**
+     *
+     * @param form
+     */
+    function login(form) {
       $scope.submitted = true;
 
       if(form.$valid) {
+
+        $rootScope.temporaryLoginUser = $scope.user.email;
 
         Auth.setQuickAccessUser($scope.user.email);
         $state.go('quickaccess');
 
       }
-    };
+    }
 
 
-
-    $scope.quickAccess = function(email){
+    /**
+     *
+     * @param email
+     */
+     function quickAccess(email){
 
       Auth.setQuickAccessUser(email);
       $state.go('quickaccess');
 
-    };
+    }
 
 
 

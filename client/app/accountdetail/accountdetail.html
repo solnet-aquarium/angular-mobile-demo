@@ -14,7 +14,7 @@
 
 
       <ul class="" ng-repeat="account in accounts">
-        <li><a href="/accountdetail/{{account.id}}" tooltip="{{account.info}}">{{account.title}}</a></li>
+        <li><a href="/accountdetail/{{ ::account.id}}" tooltip="{{ ::account.info}}">{{ ::account.title}}</a></li>
       </ul>
 
 

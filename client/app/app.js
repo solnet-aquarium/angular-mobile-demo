@@ -6,6 +6,7 @@ angular.module('trusteesApp', [
   'ngSanitize',
   'ngAnimate',
   'btford.socket-io',
+  'ngMaterial',
   'ui.router'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $provide) {
