@@ -1,75 +1,74 @@
 
-@page-transition-duration: 500ms;
+//@page-transition-duration: 500ms;
+//@page-transition-duration: 20000ms;
+//@page-transition-duration: 10000ms;
+@page-transition-duration: 800ms;
 
 
 .mainview {
 
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  backface-visibility: hidden;
+  &.ng-enter-active {
+//    .transform(translateX(100%) translateY(100%) translateZ(100px));
+  }
+
 }
 
 
 body.transitionFromaccounts.transitionTomain {
-  .mainview.MainCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; z-index: 8888; }
-  .mainview.AccountsCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; z-index: 9999; }
+  .mainview.MainCtrl.ng-enter-active { animation: slideInLeftPartial @page-transition-duration both ease; z-index: 8888; }
+  .mainview.AccountsCtrl.ng-leave-active { animation: slideOutRight @page-transition-duration both ease; z-index: 9999; }
 }
 body.transitionToaccounts.transitionFrommain {
-  .mainview.MainCtrl.ng-leave { animation: slideOutLeftPartial @page-transition-duration both ease; z-index: 8888; }
-  .mainview.AccountsCtrl.ng-enter { animation: slideInRightStacked @page-transition-duration both ease; z-index: 9999; }
+  .mainview.MainCtrl.ng-leave-active { animation: slideOutLeftPartial @page-transition-duration both ease; z-index: 8888; }
+  .mainview.AccountsCtrl.ng-enter-active { animation: slideInRightStacked @page-transition-duration both ease; z-index: 9999; }
 }
 
 body.transitionToaccounts.transitionFromaccountdetail {
-  .mainview.AccountsCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; z-index: 8888; }
-  .mainview.AccountdetailCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; z-index: 9999; }
+  .mainview.AccountsCtrl.ng-enter-active { animation: slideInLeftPartial @page-transition-duration both ease; z-index: 8888; }
+  .mainview.AccountdetailCtrl.ng-leave-active { animation: slideOutRight @page-transition-duration both ease; z-index: 9999; }
 }
 body.transitionFromaccounts.transitionToaccountdetail {
-  .mainview.AccountsCtrl.ng-leave { animation: slideOutLeftPartial @page-transition-duration both ease; z-index: 8888; }
-  .mainview.AccountdetailCtrl.ng-enter { animation: slideInRightStacked @page-transition-duration both ease; z-index: 9999; }
+  .mainview.AccountsCtrl.ng-leave-active { animation: slideOutLeftPartial @page-transition-duration both ease; z-index: 8888; }
+  .mainview.AccountdetailCtrl.ng-enter-active { animation: slideInRightStacked @page-transition-duration both ease; z-index: 9999; }
 }
 
 
 
 body.transitionFromsettings {
-  .mainview.SettingsCtrl.ng-leave { animation: slideOutDown @page-transition-duration both ease; z-index: 9999; }
-  .mainview.ng-enter { animation: scaleUp @page-transition-duration both ease; z-index: 8888; }
+
+  .mainview.SettingsCtrl.ng-leave-active { animation: slideOutDown @page-transition-duration both ease; z-index: 9999; }
+  .mainview.ng-enter-active { animation: scaleUp @page-transition-duration both ease; z-index: 8888; }
+
 }
 
 body.transitionTosettings {
-  .mainview.SettingsCtrl.ng-enter { animation: slideInUp @page-transition-duration both ease; z-index: 9999; }
-  .mainview.ng-leave { animation: scaleDown @page-transition-duration both ease; z-index: 8888; }
+  .mainview.ng-enter-active { animation: slideInUp @page-transition-duration both ease; z-index: 9999; }
+  .mainview.ng-leave-active { animation: scaleDown @page-transition-duration both ease; z-index: 8888; }
 }
 
 
 
 
 body.transitionTologin {
-  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration both ease; z-index: 8888; }
-  .mainview.ng-leave { animation: slideOutDown @page-transition-duration both ease; z-index: 9999; }
+  .mainview.LoginCtrl.ng-enter-active { animation: scaleUp @page-transition-duration both ease; z-index: 8888; }
+  .mainview.ng-leave-active { animation: slideOutDown @page-transition-duration both ease; z-index: 9999; }
 }
 
 body.transitionFromlogin {
-  .mainview.LoginCtrl.ng-leave { animation: scaleDown @page-transition-duration both ease; z-index: 8888; }
-  .mainview.ng-enter { animation: slideInUp @page-transition-duration both ease; z-index: 9999; }
+  .mainview.LoginCtrl.ng-leave-active { animation: scaleDown @page-transition-duration both ease; z-index: 8888; }
+  .mainview.ng-enter-active { animation: slideInUp @page-transition-duration both ease; z-index: 9999; }
 }
 
 
 
 body.transitionFromquickaccess.transitionTologin {
-  .mainview.QuickaccessCtrl.ng-leave { animation: slideOutDown @page-transition-duration both ease; z-index: 9999; }
-  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration both ease; z-index: 8888; }
+  .mainview.QuickaccessCtrl.ng-leave-active { animation: slideOutDown @page-transition-duration both ease; z-index: 9999; }
+  .mainview.LoginCtrl.ng-enter-active { animation: scaleUp @page-transition-duration both ease; z-index: 8888; }
 }
 body.transitionFromquickaccess {
-  .mainview.QuickaccessCtrl.ng-leave { animation: scaleDown @page-transition-duration both ease; z-index: 8888; }
-  .mainview.ng-enter { animation: slideInUp @page-transition-duration both ease; z-index: 9999; }
+  .mainview.QuickaccessCtrl.ng-leave-active { animation: scaleDown @page-transition-duration both ease; z-index: 8888; }
+  .mainview.ng-enter-active { animation: slideInUp @page-transition-duration both ease; z-index: 9999; }
 }
 
-
-
-
-body.transitionTologin, body.transitionFromlogin,  {
-
-
-}
 
 

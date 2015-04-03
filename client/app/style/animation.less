@@ -15,10 +15,13 @@
 @keyframes slideOutDown {
   to      { .transform(translateY(100%)); }
 }
+
+
 @keyframes slideInUp {
   from      { .transform(translateY(100%)); }
-  to      { .transform(translateY(0)); }
+  to      { .transform(translateY(0px)); }
 }
+
 @keyframes slideOutLeft {
   to      { .transform(translateX(-100%)); }
 }
@@ -43,12 +46,12 @@
 
 
 @keyframes scaleUp {
-  from    { .transform(scale(0.8)); }
+  from    { .transform(scale(0.8) translateZ(-1px)); }
 }
 
 @keyframes scaleDown {
-  from    { .transform(scale(1)); }
-  to      { .transform(scale(0.8)); }
+  from    { .transform(scale(1) translateZ(0px)); }
+  to      { .transform(scale(0.8) translateZ(-100px)); }
 
 }
 

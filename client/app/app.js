@@ -21,8 +21,12 @@ angular.module('trusteesApp', [
     //      need this to target individual transitions between two specific pages rather than always
     //      executing it on every page
     $stateProvider.decorator('data', function (state, parent) {
-      state.resolve.resolvePageTransitionClasses = ['$rootScope', '$q', function($rootScope, $q){
-        return $rootScope.resolveTransitionClasses();
+      state.resolve.resolvePageTransitionClasses = ['$rootScope', '$log', '$q', function($rootScope, $log, $q){
+        $log.debug('resolving page transition body classes', Date.now());
+        return $rootScope.resolveTransitionClasses().then(function(){
+          $log.debug('resolving page transition body classes success', Date.now());
+          return $q.when();
+        });
       }];
       return parent(state);
     });
@@ -75,18 +79,19 @@ angular.module('trusteesApp', [
 
     FastClick.attach(document.body);
 
-
-
     var resolveTransitionClassesDeferred;
 
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+
+      $log.debug('$stateChangeStart', Date.now(), event);
 
       resolveTransitionClassesDeferred = $q.defer();
 
       checkAuthOnStateChange(event, toState, toParams, fromState, fromParams);
       updatePageTransitionClasses(event, toState, toParams, fromState, fromParams);
     });
+
 
 
     function checkAuthOnStateChange(event, toState, toParams, fromState, fromParams){
@@ -103,17 +108,20 @@ angular.module('trusteesApp', [
       $rootScope.pageTransitionFromClass = 'transitionFrom' + fromState.name;
       $rootScope.pageTransitionToClass = 'transitionTo' + toState.name;
 
-
-      requestAnimationFrame(function ensureClassExists(){
-        if($('body.' + 'transitionFrom' + fromState.name).length){
+      $timeout(function ensureClassExists(){
+        if($('body.' + 'transitionFrom' + fromState.name + ', body.' + 'transitionTo' + toState.name).length){
           $timeout(function(){
+            $log.debug($('body')[0].className);
+            $log.debug($('.mainview')[0].className);
+            if($('.mainview')[1])
+              $log.debug($('.mainview')[1].className);
             resolveTransitionClassesDeferred.resolve();
           });
         }
         else{
-          requestAnimationFrame(ensureClassExists);
+          $timeout(ensureClassExists, 50);
         }
-      });
+      }, 20);
     }
 
 
