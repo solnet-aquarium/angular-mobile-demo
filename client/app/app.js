@@ -111,10 +111,6 @@ angular.module('trusteesApp', [
       $timeout(function ensureClassExists(){
         if($('body.' + 'transitionFrom' + fromState.name + ', body.' + 'transitionTo' + toState.name).length){
           $timeout(function(){
-            $log.debug($('body')[0].className);
-            $log.debug($('.mainview')[0].className);
-            if($('.mainview')[1])
-              $log.debug($('.mainview')[1].className);
             resolveTransitionClassesDeferred.resolve();
           });
         }
