@@ -16,27 +16,27 @@ angular.module('trusteesApp')
       return $q.when([
         {
           id: 1,
-          title: 'mooo'
+          title: 'Account 01'
         },
         {
           id: 2,
-          title: 'maaaa'
+          title: 'Account 02'
         },
         {
           id: 3,
-          title: 'mmmmmmmm'
+          title: 'Account 03'
         },
         {
           id: 3,
-          title: 'mmmmmmmm'
+          title: 'Account 04'
         },
         {
           id: 3,
-          title: 'mmmmmmmm'
+          title: 'Account 05'
         },
         {
           id: 3,
-          title: 'mmmmmmmm'
+          title: 'Account 06'
         }
       ]);
     }

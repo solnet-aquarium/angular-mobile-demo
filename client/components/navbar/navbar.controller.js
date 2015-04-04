@@ -8,9 +8,7 @@ angular.module('trusteesApp')
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.historyBack = _.debounce(historyBack, 16, true);
 
-    //$scope.openRightSidedrawer   = _.debounce(snapper.openRightSideDrawer, 16, true);
-    //$scope.closeRightSidedrawer  = _.debounce(snapper.closeRightSideDrawer, 16, true);
-    //$scope.toggleRightSidedrawer = _.debounce(snapper.toggleRightSideDrawer, 16, true);
+    $scope.goHome = _.debounce(goHome, 20, true);
 
     $scope.logout = function() {
       Auth.logout();
@@ -28,6 +26,10 @@ angular.module('trusteesApp')
      */
     function historyBack(){
       window.history.back();
+    }
+
+    function goHome(){
+      $state.go('main');
     }
 
 

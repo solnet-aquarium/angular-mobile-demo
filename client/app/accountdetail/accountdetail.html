@@ -1,27 +1,11 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>Account Transations</h1>
-  </div>
-</header>
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-
-      <h1 class="page-header">Transactions</h1>
-
-
-      <ul class="" ng-repeat="account in accounts">
-        <li><a href="/accountdetail/{{ ::account.id}}" tooltip="{{ ::account.info}}">{{ ::account.title}}</a></li>
-      </ul>
-
-
-
-
-
-    </div>
-  </div>
-
+<div class="mainlist">
+  <!--<a href="/accounttransactiondetail/{{::transaction.id}}" tooltip="{{::transaction.info}}" ng-repeat="transaction in ::transactions">-->
+  <a  ng-repeat="transaction in ::transactions">
+    <md-button >{{ ::transaction.title}}</md-button>
+  </a>
 </div>
+
+

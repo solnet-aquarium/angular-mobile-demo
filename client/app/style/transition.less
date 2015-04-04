@@ -17,6 +17,13 @@
 }
 
 
+body.transitionFromaccountdetail.transitionTomain {
+  .mainview.MainCtrl { z-index: @back-z; }
+  .mainview.MainCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
+  .mainview.AccountdetailCtrl { z-index: @front-z; }
+  .mainview.AccountdetailCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
+}
+
 body.transitionFromaccounts.transitionTomain {
   .mainview.MainCtrl { z-index: @back-z; }
   .mainview.MainCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
