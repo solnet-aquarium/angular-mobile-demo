@@ -4,6 +4,7 @@
 //@page-transition-duration: 500ms;
 //@page-transition-duration: 20000ms;
 @page-transition-duration: 700ms;
+@page-transition-duration-quickaccess: 850ms;
 
 @front-z: 9999;
 @back-z: 8888;
@@ -81,9 +82,9 @@ body.transitionTologin {
 
 body.transitionFromlogin {
   .mainview.LoginCtrl { z-index: @back-z; }
-  .mainview.LoginCtrl.ng-leave { animation: scaleDown @page-transition-duration both ease; }
+  .mainview.LoginCtrl.ng-leave { animation: scaleDownSlow @page-transition-duration-quickaccess both ease; }
   .mainview { z-index: @front-z; }
-  .mainview.ng-enter { animation: slideInUp @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-quickaccess both ease; }
 }
 
 

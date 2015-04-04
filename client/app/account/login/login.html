@@ -8,7 +8,7 @@
       <div class="form-group form-group-input">
         <md-input-container>
           <label>Email</label>
-          <input name="email" ng-model="user.email" required minlength="1">
+          <input name="email" ng-model="user.email" required minlength="1" placeholder="admin@admin.com">
           <div ng-messages="userForm.lastName.$error" ng-show="form.$submitted && form.email.$invalid">
             <div class="message" ng-message="required">This is required.</div>
           </div>
