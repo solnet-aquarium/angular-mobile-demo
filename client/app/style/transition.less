@@ -4,7 +4,7 @@
 //@page-transition-duration: 500ms;
 //@page-transition-duration: 20000ms;
 @page-transition-duration: 700ms;
-@page-transition-duration-quickaccess: 850ms;
+@page-transition-duration-long: 800ms;
 
 @front-z: 9999;
 @back-z: 8888;
@@ -75,16 +75,16 @@ body.transitionTosettings {
 
 body.transitionTologin {
   .mainview.LoginCtrl{ z-index: @back-z; }
-  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration both ease; }
+  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration-long both ease; }
   .mainview { z-index: @front-z; }
   .mainview.ng-leave { animation: slideOutDown @page-transition-duration both ease; }
 }
 
 body.transitionFromlogin {
   .mainview.LoginCtrl { z-index: @back-z; }
-  .mainview.LoginCtrl.ng-leave { animation: scaleDownSlow @page-transition-duration-quickaccess both ease; }
+  .mainview.LoginCtrl.ng-leave { animation: scaleDown @page-transition-duration both ease; }
   .mainview { z-index: @front-z; }
-  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-quickaccess both ease; }
+  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-long both ease; }
 }
 
 
@@ -94,14 +94,14 @@ body.transitionFromquickaccess.transitionTologin {
   .mainview.QuickaccessCtrl { z-index: @front-z; }
   .mainview.QuickaccessCtrl.ng-leave { animation: slideOutDown @page-transition-duration both ease; }
   .mainview.LoginCtrl { z-index: @back-z; }
-  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration both ease; }
+  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration-long both ease; }
 }
 
 body.transitionFromquickaccess:not(.transitionTologin) {
   .mainview.QuickaccessCtrl { z-index: @back-z; }
   .mainview.QuickaccessCtrl.ng-leave { animation: scaleDown @page-transition-duration both ease; }
   .mainview { z-index: @front-z; }
-  .mainview.ng-enter { animation: slideInUp @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-long both ease; }
 }
 
 
