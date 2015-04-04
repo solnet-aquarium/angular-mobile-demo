@@ -10,8 +10,8 @@ angular.module('trusteesApp', [
   'ui.router'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $provide) {
-    $urlRouterProvider
-      .otherwise('/');
+
+    $urlRouterProvider.otherwise('/');
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
@@ -21,16 +21,22 @@ angular.module('trusteesApp', [
     //      need this to target individual transitions between two specific pages rather than always
     //      executing it on every page
     $stateProvider.decorator('data', function (state, parent) {
-      state.resolve.resolvePageTransitionClasses = ['$rootScope', '$log', '$q', function($rootScope, $log, $q){
-        $log.debug('resolving page transition body classes', Date.now());
+      state.resolve.resolvePageTransitionClasses = ['$rootScope', '$q', 'Logger', function($rootScope, $q, Logger){
+
+        var logger = Logger.getLogger('resolvePageTransitionClasses:' + state.name);
+        logger.debug('resolving page transition body classes', Date.now());
+
         return $rootScope.resolveTransitionClasses().then(function(){
-          $log.debug('resolving page transition body classes success', Date.now());
+          logger.debug('resolving page transition body classes success', Date.now());
           return $q.when();
         });
       }];
       return parent(state);
     });
 
+    /**
+     *
+     */
     $provide.decorator('$controller', [
       '$delegate',
       function ($delegate) {
@@ -74,26 +80,50 @@ angular.module('trusteesApp', [
 
 
 
-  .run(function ($rootScope, $location, Auth, $state, $log, $timeout, $q) {
+  .run(function ($rootScope, $location, Auth, $state, Logger, $timeout, $q) {
 
+
+    if($('#server-config #env').text() === 'development'){
+      Logger.setAllLogLevel('debug');
+    }
+
+    var logger = Logger.getLogger('trusteesApp:run');
+    var resolveTransitionClassesDeferred;
 
     FastClick.attach(document.body);
 
-    var resolveTransitionClassesDeferred;
+    $rootScope.resolveTransitionClasses = resolveTransitionClasses;
+    $rootScope.openQuickaccess = openQuickaccess;
+    $rootScope.$on('$stateChangeStart', stateChangeSuccess);
 
-    // Redirect to login if route requires auth and you're not logged in
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
 
-      $log.debug('$stateChangeStart', Date.now(), event);
+    /**
+     *
+     * @param event
+     * @param toState
+     * @param toParams
+     * @param fromState
+     * @param fromParams
+     */
+    function stateChangeSuccess(event, toState, toParams, fromState, fromParams) {
+
+      logger.debug('$stateChangeStart', Date.now(), event);
 
       resolveTransitionClassesDeferred = $q.defer();
 
+      // Redirect to login if route requires auth and you're not logged in
       checkAuthOnStateChange(event, toState, toParams, fromState, fromParams);
       updatePageTransitionClasses(event, toState, toParams, fromState, fromParams);
-    });
+    }
 
-
-
+    /**
+     *
+     * @param event
+     * @param toState
+     * @param toParams
+     * @param fromState
+     * @param fromParams
+     */
     function checkAuthOnStateChange(event, toState, toParams, fromState, fromParams){
       Auth.isLoggedInAsync(function(loggedIn) {
         if (toState.authenticate && !loggedIn) {
@@ -103,38 +133,52 @@ angular.module('trusteesApp', [
     }
 
 
+    /**
+     *
+     * @param event
+     * @param toState
+     * @param toParams
+     * @param fromState
+     * @param fromParams
+     */
     function updatePageTransitionClasses(event, toState, toParams, fromState, fromParams){
-
-      //if(fromState.name){
-        $rootScope.pageTransitionFromClass = 'transitionFrom' + fromState.name;
-        $rootScope.pageTransitionToClass = 'transitionTo' + toState.name;
+      $rootScope.pageTransitionFromClass = 'transitionFrom' + fromState.name;
+      $rootScope.pageTransitionToClass = 'transitionTo' + toState.name;
 
 
-        $timeout(function ensureClassExists(){
+      $timeout(function ensureClassExists(){
 
-          var $body = $('body.' + 'transitionFrom' + fromState.name + ', body.' + 'transitionTo' + toState.name);
-          if($body.length){
-            $timeout(function(){
-              resolveTransitionClassesDeferred.resolve();
-            });
-          }
-          else{
-            $timeout(ensureClassExists, 50);
-          }
-        }, 20);
+        var $body = $('body.' + 'transitionFrom' + fromState.name + ', body.' + 'transitionTo' + toState.name);
+        if($body.length){
+          $timeout(function(){
+            resolveTransitionClassesDeferred.resolve();
+          });
+        }
+        else{
+          $timeout(ensureClassExists, 50);
+        }
+      }, 20);
 
-      //}
-      //else{
-      //  resolveTransitionClassesDeferred.resolve();
-      //}
 
     }
 
 
-    $rootScope.resolveTransitionClasses = function(){
+    /**
+     *
+     * @returns {*}
+     */
+    function resolveTransitionClasses(){
       return resolveTransitionClassesDeferred.promise;
-    };
+    }
 
+
+    /**
+     *
+     */
+    function openQuickaccess(email){
+      Auth.setQuickAccessUser(email);
+      $state.go('quickaccess');
+    }
 
 
 

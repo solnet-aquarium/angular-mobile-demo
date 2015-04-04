@@ -27,9 +27,7 @@ angular.module('trusteesApp')
       if(form.$valid) {
 
         $rootScope.temporaryLoginUser = $scope.user.email;
-
-        Auth.setQuickAccessUser($scope.user.email);
-        $state.go('quickaccess');
+        $rootScope.openQuickaccess($scope.user.email);
 
       }
     }
@@ -40,10 +38,7 @@ angular.module('trusteesApp')
      * @param email
      */
      function quickAccess(email){
-
-      Auth.setQuickAccessUser(email);
-      $state.go('quickaccess');
-
+      $rootScope.openQuickaccess(email);
     }
 
 

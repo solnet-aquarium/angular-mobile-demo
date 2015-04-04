@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('QuickaccessCtrl', function ($scope, Auth, $location, $log, $state, $timeout, $rootScope, $window) {
+  .controller('QuickaccessCtrl', function ($scope, Auth, $location, Logger, $state, $timeout, $rootScope, $window) {
 
 
     var self = this;
+
+    var logger = Logger.getLogger($scope.controllerName);
 
     $scope.email = undefined;
     $scope.error = undefined;
@@ -62,7 +64,7 @@ angular.module('trusteesApp')
      *
      */
     function back(){
-      $log.debug('quick access ctrl back');
+      logger.debug('quick access ctrl back');
 
       $window.history.back();
     }
@@ -72,7 +74,7 @@ angular.module('trusteesApp')
      */
     function addPinDigit(digit){
 
-      $log.debug('adding pin digit');
+      logger.debug('adding pin digit');
 
       if($scope.pin.length > 4){
         if($scope.error){
@@ -118,7 +120,7 @@ angular.module('trusteesApp')
         Auth.setQuickAccessUser(undefined);
       })
       .catch( function(err) {
-          $log.debug('error logging in');
+          logger.debug('error logging in');
           addError(err.message);
       });
 

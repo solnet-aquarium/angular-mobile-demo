@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .service('main', function ($q, $log) {
+  .service('main', function ($q, Logger) {
+
 
     var self = this;
+
+    var logger = Logger.getLogger('main.service');
+
 
     self.getMainItems = getMainItems;
 

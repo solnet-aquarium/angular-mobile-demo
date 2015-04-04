@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('MainCtrl', function ($scope, $http, socket, main, $log, $state, Auth, $timeout) {
+  .controller('MainCtrl', function ($scope, $http, socket, main, $state, Auth, $timeout, Logger) {
 
+
+    var logger = Logger.getLogger($scope.controllerName);
 
 
     main.getMainItems().then(function(items){
-      $log.debug('MainCtrl items', items);
+      logger.debug('MainCtrl items', items);
       $scope.items = items;
     });
 
