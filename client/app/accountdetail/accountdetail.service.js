@@ -40,43 +40,7 @@ angular.module('trusteesApp')
         },
         {
           id: 7,
-          title: 'Transaction 05'
-        },
-        {
-          id: 8,
-          title: 'Transaction 06'
-        },
-        {
-          id: 9,
-          title: 'Transaction 05'
-        },
-        {
-          id: 10,
-          title: 'Transaction 06'
-        },
-        {
-          id: 11,
-          title: 'Transaction 05'
-        },
-        {
-          id: 12,
-          title: 'Transaction 06'
-        },
-        {
-          id: 13,
-          title: 'Transaction 05'
-        },
-        {
-          id: 14,
-          title: 'Transaction 06'
-        },
-        {
-          id: 15,
-          title: 'Transaction 05'
-        },
-        {
-          id: 16,
-          title: 'Transaction 06'
+          title: 'Transaction 07'
         }
       ]);
     }
