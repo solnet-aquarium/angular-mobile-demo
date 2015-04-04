@@ -17,11 +17,13 @@ angular.module('trusteesApp')
       return $q.when(
         [{
           name: 'Accounts',
-          state: 'accounts'
+          state: 'accounts',
+          icon: 'fa-list'
         },
         {
           name: 'Settings',
-          state: 'settings'
+          state: 'settings',
+          icon: 'fa-cog'
         }]
 
       );

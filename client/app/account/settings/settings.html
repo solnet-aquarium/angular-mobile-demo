@@ -1,36 +1,42 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 
-<h1>Change Password</h1>
 
-<form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+<h3>Change PIN</h3>
 
-  <div class="form-group">
-    <label>Current Password</label>
 
-    <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
-           mongoose-error/>
-    <p class="help-block" ng-show="form.password.$error.mongoose">
-        {{ errors.other }}
-    </p>
+
+
+
+
+<form class="form" name="settingForm" ng-submit="changePassword(settingForm)" novalidate>
+
+  <div class="form-group form-group-input">
+    <md-input-container>
+      <label>Current PIN</label>
+      <input name="password" type="number" ng-model="user.oldPassword" required minlength="1">
+      <div ng-messages="settingForm.password.$error" ng-show="form.$submitted && form.email.$invalid">
+        <div class="message" ng-message="required">This is required.</div>
+      </div>
+    </md-input-container>
   </div>
 
-  <div class="form-group">
-    <label>New Password</label>
-
-    <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-           ng-minlength="3"
-           required/>
-    <p class="help-block"
-       ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-      Password must be at least 3 characters.
-    </p>
+  <div class="form-group form-group-input">
+    <md-input-container>
+      <label>New PIN</label>
+      <input name="newPassword" type="number" ng-model="user.newPassword" required minlength="1">
+      <div ng-messages="settingForm.password.$error" ng-show="form.$submitted && form.email.$invalid">
+        <div class="message" ng-message="required">This is required.</div>
+      </div>
+    </md-input-container>
   </div>
 
   <p class="help-block"> {{ message }} </p>
 
-  <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+  <md-button class="md-button md-raised" type="submit">Save changes</md-button>
+
 </form>
+
 
 
 

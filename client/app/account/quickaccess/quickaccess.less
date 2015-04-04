@@ -45,12 +45,20 @@
 
   .pindisplay {
 
-    &.error {
+    &.success {
+      i {
+        .transform(scale(0));
+      }
 
+    }
+
+    &.error {
+      animation: wobble 500ms both ease;
       color: @danger-text;
     }
 
     i {
+      .transition(transform 500ms ease);
       width: 30px;
     }
 

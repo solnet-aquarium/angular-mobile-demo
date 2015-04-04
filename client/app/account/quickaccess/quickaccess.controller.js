@@ -8,6 +8,7 @@ angular.module('trusteesApp')
 
     $scope.email = undefined;
     $scope.error = undefined;
+    $scope.success = undefined;
     $scope.clearPin = _.debounce(clearPin, 60, true);
     $scope.back = _.debounce(back, 50, true);
     $scope.pin = '';
@@ -107,7 +108,7 @@ angular.module('trusteesApp')
       })
       .then( function() {
         // Logged in, redirect to home
-
+        $scope.success = true;
         $timeout(function(){
           window.history.replaceState( {} , 'main', '/' );
         });

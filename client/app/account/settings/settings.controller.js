@@ -5,7 +5,9 @@ angular.module('trusteesApp')
     $scope.errors = {};
 
     $scope.changePassword = function(form) {
+
       $scope.submitted = true;
+
       if(form.$valid) {
         Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
         .then( function() {

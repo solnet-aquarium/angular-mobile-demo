@@ -6,7 +6,7 @@
     <md-button ng-click="::back()" ><h3>{{::email}}</h3></md-button>
   </div>
 
-  <div class="row pindisplay" ng-class="{'error': error}">
+  <div class="row pindisplay" ng-class="{'error': error, 'success': success}">
 
     <i class="fa" ng-class="{'fa-circle': pin.length >= 1, 'fa-circle-o': pin.length < 1}"></i>
     <i class="fa" ng-class="{'fa-circle': pin.length >= 2, 'fa-circle-o': pin.length < 2}"></i>
@@ -32,7 +32,7 @@
 
       <md-button class="pindigit md-accent md-button md-default-theme pindigit md-accent md-default-theme-last" ng-click="::throttlePinDigit(0)">0</md-button>
 
-      <md-button class="pinclear md-button md-default-theme" ng-click="::clearPin()" ng-class="{'active': pin && pin.length}">Clear</md-button>
+      <md-button class="pinclear md-button md-default-theme" ng-click="::clearPin()" ng-class="{'active': pin && pin.length && ! error}">Clear</md-button>
 
     </div>
   </div>
