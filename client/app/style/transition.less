@@ -13,42 +13,41 @@
 
 
 .mainview {
-//  .transition(transform @page-transition-duration ease opacity @page-transition-duration ease);
-  .transition(all @page-transition-duration ease);
+  .transition(transform @page-transition-duration ease opacity @page-transition-duration ease z-index @page-transition-duration ease);
 }
 
 
 body.transitionFromaccountdetail.transitionTomain {
   .mainview.MainCtrl { z-index: @back-z; }
-  .mainview.MainCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
   .mainview.AccountdetailCtrl { z-index: @front-z; }
-  .mainview.AccountdetailCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
 }
 
 body.transitionFromaccounts.transitionTomain {
   .mainview.MainCtrl { z-index: @back-z; }
-  .mainview.MainCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
   .mainview.AccountsCtrl { z-index: @front-z; }
-  .mainview.AccountsCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
 }
 body.transitionToaccounts.transitionFrommain {
   .mainview.MainCtrl { z-index: @back-z; }
-  .mainview.MainCtrl.ng-leave { animation: slideOutLeftPartial @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutLeftPartial @page-transition-duration both ease; }
   .mainview.AccountsCtrl { z-index: @front-z; }
-  .mainview.AccountsCtrl.ng-enter { animation: slideInRightStacked @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInRightStacked @page-transition-duration both ease; }
 }
 
 body.transitionToaccounts.transitionFromaccountdetail {
   .mainview.AccountsCtrl { z-index: @back-z; }
-  .mainview.AccountsCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
   .mainview.AccountdetailCtrl { z-index: @front-z; }
-  .mainview.AccountdetailCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
 }
 body.transitionFromaccounts.transitionToaccountdetail {
   .mainview.AccountsCtrl { z-index: @back-z; }
-  .mainview.AccountsCtrl.ng-leave { animation: slideOutLeftPartial @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutLeftPartial @page-transition-duration both ease; }
   .mainview.AccountdetailCtrl { z-index: @front-z; }
-  .mainview.AccountdetailCtrl.ng-enter { animation: slideInRightStacked @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInRightStacked @page-transition-duration both ease; }
 }
 
 
@@ -56,7 +55,7 @@ body.transitionFromaccounts.transitionToaccountdetail {
 body.transitionFromsettings {
 
   .mainview.SettingsCtrl { z-index: @front-z; }
-  .mainview.SettingsCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutRight @page-transition-duration both ease; z-index: @front-z; }
   .mainview { z-index: @back-z; }
   .mainview.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
 
@@ -64,7 +63,7 @@ body.transitionFromsettings {
 
 body.transitionTosettings {
   .mainview.SettingsCtrl { z-index: @front-z; }
-  .mainview.SettingsCtrl.ng-enter { animation: slideInRight @page-transition-duration both ease; }
+  .mainview.ng-enter { animation: slideInRight @page-transition-duration both ease; }
   .mainview { z-index: @back-z; }
   .mainview.ng-leave { animation: slideOutLeftPartial @page-transition-duration both ease; }
 }
@@ -75,16 +74,18 @@ body.transitionTosettings {
 
 body.transitionTologin {
   .mainview.LoginCtrl{ z-index: @back-z; }
-  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration-long both ease; }
+  .mainview.ng-enter { animation: scaleUp @page-transition-duration-long both ease; z-index: @back-z; }
+
   .mainview { z-index: @front-z; }
-  .mainview.ng-leave { animation: slideOutDown @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutDown @page-transition-duration both ease; z-index: @front-z; }
 }
 
 body.transitionFromlogin {
   .mainview.LoginCtrl { z-index: @back-z; }
-  .mainview.LoginCtrl.ng-leave { animation: scaleDown @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: scaleDown @page-transition-duration-long both ease; }
+
   .mainview { z-index: @front-z; }
-  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-long both ease; }
+  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-long both ease; z-index: @front-z; }
 }
 
 
@@ -92,16 +93,17 @@ body.transitionFromlogin {
 body.transitionFromquickaccess.transitionTologin {
 
   .mainview.QuickaccessCtrl { z-index: @front-z; }
-  .mainview.QuickaccessCtrl.ng-leave { animation: slideOutDown @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: slideOutDown @page-transition-duration both ease; z-index: @front-z; }
+
   .mainview.LoginCtrl { z-index: @back-z; }
-  .mainview.LoginCtrl.ng-enter { animation: scaleUp @page-transition-duration-long both ease; }
+  .mainview.ng-enter { animation: scaleUp @page-transition-duration-long both ease; z-index: @back-z; }
 }
 
 body.transitionFromquickaccess:not(.transitionTologin) {
   .mainview.QuickaccessCtrl { z-index: @back-z; }
-  .mainview.QuickaccessCtrl.ng-leave { animation: scaleDown @page-transition-duration both ease; }
+  .mainview.ng-leave { animation: scaleDown @page-transition-duration both ease; z-index: @back-z; }
   .mainview { z-index: @front-z; }
-  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-long both ease; }
+  .mainview.ng-enter { animation: slideInUpSlow @page-transition-duration-long both ease; z-index: @front-z; }
 }
 
 
