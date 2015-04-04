@@ -105,7 +105,7 @@ angular.module('trusteesApp', [
 
     function updatePageTransitionClasses(event, toState, toParams, fromState, fromParams){
 
-      if(fromState.name){
+      //if(fromState.name){
         $rootScope.pageTransitionFromClass = 'transitionFrom' + fromState.name;
         $rootScope.pageTransitionToClass = 'transitionTo' + toState.name;
 
@@ -123,10 +123,10 @@ angular.module('trusteesApp', [
           }
         }, 20);
 
-      }
-      else{
-        resolveTransitionClassesDeferred.resolve();
-      }
+      //}
+      //else{
+      //  resolveTransitionClassesDeferred.resolve();
+      //}
 
     }
 

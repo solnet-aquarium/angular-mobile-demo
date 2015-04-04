@@ -1,58 +1,73 @@
 
 @keyframes slideOutLeftPartial {
-  from      { .transform(translateX(0)); opacity: 1; }
-  to        { .transform(translateX(-40%)); opacity: 0.5; }
+  0%      { .transform(translateX(0)); opacity: 1; }
+  30%      { .transform(translateX(0)); opacity: 1; }
+  100%        { .transform(translateX(-40%)); opacity: 0.5; }
 }
 @keyframes slideInLeftPartial {
-  from    { .transform(translateX(-40%)); opacity: 0.5; }
-  to      { .transform(translateX(0)); opacity: 1; }
+  0%    { .transform(translateX(-40%)); opacity: 0.5; }
+  30%    { .transform(translateX(-40%)); opacity: 0.5; }
+  100%      { .transform(translateX(0)); opacity: 1; }
 }
 
 
 /* slide in from the bottom */
 @keyframes slideOutRight {
-  to      { .transform(translateX(100%)); }
+  0%      { .transform(translateX(0)); }
+  30%      { .transform(translateX(0)); }
+  100%      { .transform(translateX(100%)); }
 }
 @keyframes slideOutDown {
-  to      { .transform(translateY(100%)); }
+  0%      { .transform(translateY(0)); }
+  30%      { .transform(translateY(0)); }
+  100%      { .transform(translateY(100%)); }
 }
 
 
 @keyframes slideInUp {
-  from      { .transform(translateY(100%)); }
-  to      { .transform(translateY(0px)); }
+  0%      { .transform(translateY(100%)); }
+  30%      { .transform(translateY(100%)); }
+  100%      { .transform(translateY(0)); }
 }
 
 @keyframes slideOutLeft {
-  to      { .transform(translateX(-100%)); }
+  0%      { .transform(translateX(0)); }
+  30%      { .transform(translateX(0)); }
+  100%      { .transform(translateX(-100%)); }
 }
 
 /* slide in from the right */
 @keyframes slideInRightStacked {
   0%    { .transform(translateX(100%)); }
+  30%    { .transform(translateX(100%)); }
   100%      { .transform(translateX(0)); }
 }
 
 /* slide in from the right */
 @keyframes slideInRight {
   0%    { .transform(translateX(100%)); }
+  30%    { .transform(translateX(100%)); }
   100%      { .transform(translateX(0)); }
 }
 
 /* slide in from the right */
 @keyframes slideInLeft {
   0%    { .transform(translateX(-100%)); }
+  30%    { .transform(translateX(-100%)); }
   100%      { .transform(translateX(0)); }
 }
 
 
 @keyframes scaleUp {
-  from    { .transform(scale(0.8)); }
+  0%    { .transform(scale(0.8)); }
+  30%    { .transform(scale(0.8)); }
+  100%    { .transform(scale(1)); }
 }
 
 @keyframes scaleDown {
-  from    { .transform(scale(1)); }
-  to      { .transform(scale(0.75)); }
+  0%    { .transform(scale(1)); }
+  30%    { .transform(scale(1)); }
+  100%      { .transform(scale(0.75)); }
 
 }
 
