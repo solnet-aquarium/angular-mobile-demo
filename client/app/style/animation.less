@@ -1,10 +1,11 @@
 
 @keyframes slideOutLeftPartial {
-  to      { .transform(translateX(-40%)); opacity: 0.5; }
+  from      { .transform(translateX(0)); opacity: 1; }
+  to        { .transform(translateX(-40%)); opacity: 0.5; }
 }
 @keyframes slideInLeftPartial {
-  0%    { .transform(translateX(-40%)); opacity: 0.5; }
-  100%      { .transform(translateX(0)); opacity: 1; }
+  from    { .transform(translateX(-40%)); opacity: 0.5; }
+  to      { .transform(translateX(0)); opacity: 1; }
 }
 
 

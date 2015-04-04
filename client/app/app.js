@@ -116,21 +116,6 @@ angular.module('trusteesApp', [
           if($body.length){
             $timeout(function(){
               resolveTransitionClassesDeferred.resolve();
-
-              var removeClassesOnce = _.once(function(){
-                $rootScope.pageTransitionFromClass = '';
-                $rootScope.pageTransitionToClass = '';
-              });
-
-              $body.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(event){
-                $timeout(removeClassesOnce);
-              });
-              $timeout(function(){
-                $timeout(removeClassesOnce);
-              }, 600);
-
-
-
             });
           }
           else{

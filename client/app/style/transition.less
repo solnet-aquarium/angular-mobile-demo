@@ -13,7 +13,7 @@
 
 .mainview.ng-animate {
 //  .transition(transform @page-transition-duration ease opacity @page-transition-duration ease);
-  .transition(all @page-transition-duration ease);
+//  .transition(all @page-transition-duration ease);
 }
 
 
@@ -21,7 +21,7 @@ body.transitionFromaccounts.transitionTomain {
   .mainview.MainCtrl { z-index: @back-z; }
   .mainview.MainCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
   .mainview.AccountsCtrl { z-index: @front-z; }
-  .mainview.AccountsCtrl.ng-leave-active { animation: slideOutRight @page-transition-duration both ease; }
+  .mainview.AccountsCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
 }
 body.transitionToaccounts.transitionFrommain {
   .mainview.MainCtrl { z-index: @back-z; }
@@ -34,7 +34,7 @@ body.transitionToaccounts.transitionFromaccountdetail {
   .mainview.AccountsCtrl { z-index: @back-z; }
   .mainview.AccountsCtrl.ng-enter { animation: slideInLeftPartial @page-transition-duration both ease; }
   .mainview.AccountdetailCtrl { z-index: @front-z; }
-  .mainview.AccountdetailCtrl.ng-leave-active { animation: slideOutRight @page-transition-duration both ease; }
+  .mainview.AccountdetailCtrl.ng-leave { animation: slideOutRight @page-transition-duration both ease; }
 }
 body.transitionFromaccounts.transitionToaccountdetail {
   .mainview.AccountsCtrl { z-index: @back-z; }
