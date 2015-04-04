@@ -105,19 +105,37 @@ angular.module('trusteesApp', [
 
     function updatePageTransitionClasses(event, toState, toParams, fromState, fromParams){
 
-      $rootScope.pageTransitionFromClass = 'transitionFrom' + fromState.name;
-      $rootScope.pageTransitionToClass = 'transitionTo' + toState.name;
+      if(fromState.name){
+        $rootScope.pageTransitionFromClass = 'transitionFrom' + fromState.name;
+        $rootScope.pageTransitionToClass = 'transitionTo' + toState.name;
 
-      $timeout(function ensureClassExists(){
-        if($('body.' + 'transitionFrom' + fromState.name + ', body.' + 'transitionTo' + toState.name).length){
-          $timeout(function(){
-            resolveTransitionClassesDeferred.resolve();
-          });
-        }
-        else{
-          $timeout(ensureClassExists, 50);
-        }
-      }, 20);
+
+        $timeout(function ensureClassExists(){
+
+          var $body = $('body.' + 'transitionFrom' + fromState.name + ', body.' + 'transitionTo' + toState.name);
+          if($body.length){
+            $timeout(function(){
+              resolveTransitionClassesDeferred.resolve();
+
+              $body.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(event){
+                $timeout(function(){
+                  $rootScope.pageTransitionFromClass = '';
+                  $rootScope.pageTransitionToClass = '';
+                });
+              });
+
+            });
+          }
+          else{
+            $timeout(ensureClassExists, 50);
+          }
+        }, 20);
+
+      }
+      else{
+        resolveTransitionClassesDeferred.resolve();
+      }
+
     }
 
 

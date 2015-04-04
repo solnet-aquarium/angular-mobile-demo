@@ -6,7 +6,7 @@
     <md-button ng-click="::back()" ><h3>{{::email}}</h3></md-button>
   </div>
 
-  <div class="row pindisplay">
+  <div class="row pindisplay" ng-class="{'error': error}">
 
     <i class="fa" ng-class="{'fa-circle': pin.length >= 1, 'fa-circle-o': pin.length < 1}"></i>
     <i class="fa" ng-class="{'fa-circle': pin.length >= 2, 'fa-circle-o': pin.length < 2}"></i>

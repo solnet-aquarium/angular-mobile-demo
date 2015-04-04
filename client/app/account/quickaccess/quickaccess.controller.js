@@ -43,10 +43,17 @@ angular.module('trusteesApp')
     }
 
     function addError(error){
+
+      if(supportsVibrate){
+        navigator.vibrate(150);
+      }
+
       $scope.error = error;
       $timeout(function(){
-        clearError();
-        clearPin();
+        if($scope.error){
+          clearError();
+          clearPin();
+        }
       }, 500);
     }
 
@@ -67,7 +74,13 @@ angular.module('trusteesApp')
       $log.debug('adding pin digit');
 
       if($scope.pin.length > 4){
-        return;
+        if($scope.error){
+          clearError();
+          clearPin();
+        }
+        else {
+          return;
+        }
       }
 
       if(supportsVibrate){
@@ -99,8 +112,8 @@ angular.module('trusteesApp')
           window.history.replaceState( {} , 'main', '/' );
         });
 
+          //TODO duplicate???
         $rootScope.temporaryLoginUser = undefined;
-
         Auth.setQuickAccessUser(undefined);
       })
       .catch( function(err) {

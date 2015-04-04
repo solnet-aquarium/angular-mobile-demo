@@ -12,7 +12,6 @@ body.snapjs-right, body.snapjs-left {
 
   .snap-content {
     opacity: 0.75;
-
   }
 
   .snap-content .mainview {
@@ -28,23 +27,18 @@ body.snapjs-right, body.snapjs-left {
 
 }
 
-
-.snap-content .mainview {
-  .transition(all 300ms ease);
-}
-
 .snap-content {
-  .transition(all 300ms ease);
+  .transition(transform @page-transition-duration ease opacity @page-transition-duration ease);
 
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  width: auto;
+  width: 100%;
   height: auto;
   z-index: 2;
-  overflow: auto;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -59,7 +53,7 @@ body.snapjs-right, body.snapjs-left {
   right: 0;
   bottom: 0;
   left: 0;
-  width: auto;
+  width: 100%;
   height: auto;
 }
 
@@ -74,11 +68,11 @@ body.snapjs-right, body.snapjs-left {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 
-  .transition(all 300ms ease);
+  .transition(transform @page-transition-duration ease);
 }
 
 .snap-drawer-left {
-  .transition(all 300ms ease);
+  .transition(transform @page-transition-duration ease);
   .transform(translateX(-100%));
 
   left: 0;
@@ -86,7 +80,7 @@ body.snapjs-right, body.snapjs-left {
 }
 
 .snap-drawer-right {
-  .transition(all 300ms ease);
+  .transition(transform @page-transition-duration ease);
   .transform(translateX(100%));
 
   right: 0;
