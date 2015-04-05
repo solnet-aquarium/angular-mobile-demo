@@ -45,8 +45,51 @@
 
   .pindisplay {
 
+    .pindisplay-circle {
+      .transition(transform 500ms ease);
+
+      padding: 0;
+      margin: 0 5px;
+      display: inline-block;
+
+      &.pindisplay-circle-full {
+        .pindisplay-inner {
+          .transform(scale(1));
+        }
+
+      }
+
+      .pindisplay-outter {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        border: 5px solid @button-dark;
+      }
+
+      .pindisplay-inner {
+
+        .transition(transform 200ms ease);
+        .transform(scale(0));
+
+        display: block;
+        position: relative;
+
+        top: -17px;
+        left: 3px;
+
+        width: 14px;
+        height: 14px;
+        border-radius: 100%;
+        background-color: @button-dark;
+      }
+
+    }
+
+
+
     &.success {
-      i {
+      .pindisplay-circle {
         .transform(scale(0));
       }
 
@@ -54,18 +97,19 @@
 
     &.error {
       animation: wobble 500ms both ease;
-      color: @danger-text;
-    }
+      .pindisplay-outter {
+        border-color: @danger-text;
+      }
+      .pindisplay-inner {
+        background-color: @danger-text;
+      }
 
-    i {
-      .transition(transform 500ms ease);
-      width: 30px;
     }
 
     text-align: center;
-
     font-size: 1.2em;
   }
+
 
   .pininput {
 
