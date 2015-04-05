@@ -1,10 +1,32 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, $timeout) {
+
     $scope.errors = {};
 
-    $scope.changePassword = function(form) {
+    $scope.active = undefined;
+
+    $scope.changePassword = changePassword;
+
+
+    return init();
+
+
+    /**
+     *
+     */
+    function init(){
+      $timeout(function(){
+        $scope.active = true;
+      }, 100);
+    }
+
+    /**
+     *
+     * @param form
+     */
+    function changePassword(form) {
 
       $scope.submitted = true;
 
