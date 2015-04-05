@@ -82,12 +82,13 @@ angular.module('trusteesApp', [
 
   .run(function ($rootScope, $location, Auth, $state, Logger, $timeout, $q) {
 
+    var environment = $('#server-config #env').text();
 
-    if($('#server-config #env').text() === 'development'){
-      Logger.setAllLogLevel('debug');
+    if(environment === 'development'){
+      Logger.setDefaulLogLevel('debug');
     }
 
-    var logger = Logger.getLogger('trusteesApp:run');
+    var logger = Logger.getLogger('trusteesApp:run - environment: ', environment);
     var resolveTransitionClassesDeferred;
 
     FastClick.attach(document.body);
