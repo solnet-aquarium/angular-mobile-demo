@@ -19,7 +19,7 @@ angular.module('trusteesApp')
     function init(){
       $timeout(function(){
         $scope.active = true;
-      }, 100);
+      }, 50);
     }
 
     /**
@@ -44,5 +44,5 @@ angular.module('trusteesApp')
 		}
 
 
-    
+
   });

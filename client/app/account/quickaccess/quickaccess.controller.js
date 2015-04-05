@@ -33,7 +33,7 @@ if (!angular.module('trusteesApp')
         //    was seeing the view flash in on ios - not applying translate animation styling fast enough?
         $timeout(function () {
           $scope.active = true;
-        }, 150);
+        }, 50);
 
         if (!$scope.email) {
           $state.go('login');

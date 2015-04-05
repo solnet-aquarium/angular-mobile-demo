@@ -25,10 +25,8 @@ angular.module('trusteesApp')
       $scope.submitted = true;
 
       if(form.$valid) {
-
         $rootScope.temporaryLoginUser = $scope.user.email;
         $rootScope.openQuickaccess($scope.user.email);
-
       }
     }
 
