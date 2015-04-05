@@ -54,7 +54,8 @@
 
       &.pindisplay-circle-full {
         .pindisplay-inner {
-          .transform(scale(1));
+//          .transform(scale(1));
+          opacity: 1;
         }
 
       }
@@ -69,8 +70,10 @@
 
       .pindisplay-inner {
 
-        .transition(transform 200ms ease);
-        .transform(scale(0));
+//        .transition(transform 200ms ease);
+        .transition(opacity 200ms ease);
+//        .transform(scale(0));
+        opacity: 0;
 
         display: block;
         position: relative;
