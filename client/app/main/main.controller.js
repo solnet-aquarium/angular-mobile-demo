@@ -12,27 +12,4 @@ angular.module('trusteesApp')
       $scope.items = items;
     });
 
-
-    $scope.navigateTo = _.debounce(navigateTo, 20, true);
-    $scope.logout = _.debounce(logout, 20, true);
-
-
-    return;
-
-
-    /**
-     *
-     * @param state
-     */
-    function navigateTo(state){
-      $state.go(state);
-    }
-
-    function logout(){
-      Auth.logout();
-      $timeout(function(){
-        $state.go('login');
-      });
-    }
-
   });

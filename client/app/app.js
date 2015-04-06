@@ -94,6 +94,10 @@ angular.module('trusteesApp', [
 
     $rootScope.resolveTransitionClasses = resolveTransitionClasses;
     $rootScope.openQuickaccess = openQuickaccess;
+
+    $rootScope.navigateTo = _.debounce(navigateTo, 20, true);
+    $rootScope.logout = _.debounce(logout, 20, true);
+
     $rootScope.$on('$stateChangeStart', stateChangeSuccess);
 
 
@@ -178,6 +182,27 @@ angular.module('trusteesApp', [
     function openQuickaccess(email){
       Auth.setQuickAccessUser(email);
       $state.go('quickaccess');
+    }
+
+
+
+
+    /**
+     *
+     * @param state
+     */
+    function navigateTo(state){
+      $state.go(state);
+    }
+
+    /**
+     *
+     */
+    function logout(){
+      Auth.logout();
+      $timeout(function(){
+        $state.go('login');
+      });
     }
 
 

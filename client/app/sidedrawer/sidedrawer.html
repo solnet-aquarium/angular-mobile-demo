@@ -1,0 +1,16 @@
+
+
+
+
+<div class="mainlist">
+
+  <md-button ng-click="navigateFromDrawer(item.state)" ng-repeat="item in items track by $index">
+    <span><i class="fa {{::item.icon}}"></i></span>
+    <span>{{ ::item.name}}</span>
+  </md-button>
+  <md-button ng-click="logoutFromDrawer()" >
+    <span><i class="fa fa-power-off"></i></span>
+    <span>Logout</span>
+  </md-button>
+
+</div>

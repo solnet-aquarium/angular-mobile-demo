@@ -28,7 +28,7 @@ angular.module('trusteesApp')
           template: '<md-bottom-sheet>' +
           '<h1>Transaction ' + transaction.id + '</h1>' +
           '<h3>' + transaction.info + '</h3>' +
-          '<br><br><br>' +
+          '<br><br><br><br><br><br><br>' +
           '</md-bottom-sheet>'
         });
       });
