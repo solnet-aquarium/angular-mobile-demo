@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('AccountdetailCtrl', function ($scope, accountdetail, $mdDialog) {
+  .controller('AccountdetailCtrl', function ($scope, accountdetail, $mdBottomSheet, $mdDialog) {
 
 
     accountdetail.getTransactions().then(function success(transactions){
@@ -21,16 +21,27 @@ angular.module('trusteesApp')
      * @param transactionId
      */
     function openTransaction(transaction){
-      $scope.transactionDialog = $mdDialog.alert({
-        title: 'Transaction ' + transaction.id,
-        content: transaction.info,
-        ok: 'Close'
+
+      $mdBottomSheet.show({
+        template: '<md-bottom-sheet>' +
+                    '<h1>Transaction ' + transaction.id + '</h1>' +
+                    '<h3>' + transaction.info + '</h3>' +
+                    '<br><br><br>' +
+                  '</md-bottom-sheet>'
       });
-      $mdDialog
-        .show( $scope.transactionDialog )
-        .finally(function() {
-          $scope.transactionDialog = undefined;
-        });
+
+      //$scope.transactionDialog = $mdDialog.alert({
+      //  title: 'Transaction ' + transaction.id,
+      //  content: transaction.info,
+      //  ok: 'Close'
+      //});
+      //$mdDialog
+      //  .show( $scope.transactionDialog )
+      //  .finally(function() {
+      //    $scope.transactionDialog = undefined;
+      //  });
+
+
     }
 
 
