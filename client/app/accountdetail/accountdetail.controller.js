@@ -11,7 +11,7 @@ angular.module('trusteesApp')
 
     $scope.transactionDialog = undefined;
 
-    $scope.openTransaction = _.debounce(openTransaction, 20, false);
+    $scope.openTransaction = _.debounce(openTransaction, 100, false);
 
 
     return;

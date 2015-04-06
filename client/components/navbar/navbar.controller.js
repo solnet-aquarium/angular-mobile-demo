@@ -9,8 +9,8 @@ angular.module('trusteesApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
-    $scope.historyBack = _.debounce(historyBack, 20, true);
-    $scope.toggleMenu = _.debounce(toggleMenu, 20, false);
+    $scope.historyBack = _.debounce(historyBack, 100, false);
+    $scope.toggleMenu = _.debounce(toggleMenu, 100, false);
 
 
     $scope.logout = logout;

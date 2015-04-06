@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .directive('sidedrawer', function (Logger, $mdSidenav, $rootScope) {
+  .directive('sidedrawer', function (Logger, $mdSidenav, $rootScope, $timeout) {
     return {
       templateUrl: 'app/sidedrawer/sidedrawer.html',
       restrict: 'EA',
@@ -13,6 +13,11 @@ angular.module('trusteesApp')
         logger.debug('sidedrawer:directive link');
 
         scope.items = [
+          {
+            name: 'Home',
+            state: 'main',
+            icon: 'fa-home'
+          },
           {
             name: 'Accounts',
             state: 'accounts',
@@ -33,24 +38,35 @@ angular.module('trusteesApp')
         /**
          *
          */
-        function closeDrawer(){
-          $mdSidenav('right').close();
+        function closeDrawer(action){
+
+          //delay for button animation
+          $timeout(function(){
+            $mdSidenav('right').close();
+            //delay for animation close
+            $timeout(function(){
+              action();
+            }, 175);
+          }, 100)
+
         }
 
         /**
          *
          */
         function navigateFromDrawer(state){
-          closeDrawer();
-          $rootScope.navigateTo(state);
+          closeDrawer(function(){
+            $rootScope.navigateTo(state);
+          });
         }
 
         /**
          *
          */
         function logoutFromDrawer(){
-          closeDrawer();
-          $rootScope.logout();
+          closeDrawer(function() {
+            $rootScope.logout();
+          });
         }
 
 

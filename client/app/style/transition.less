@@ -11,6 +11,7 @@
 @z-layer-3: 15;
 @z-layer-4: 20;
 @z-layer-5: 25;
+@z-layer-6: 30;
 
 
 //TODO stagger animations - for view to delay loa
@@ -31,8 +32,7 @@
     z-index: @z-layer-3 !important;
   }
 
-  &.AccountsCtrl,
-  &.SettingsCtrl {
+  &.AccountsCtrl {
     z-index: @z-layer-4 !important;
   }
 
@@ -40,6 +40,9 @@
     z-index: @z-layer-5 !important;
   }
 
+  &.SettingsCtrl {
+    z-index: @z-layer-6 !important;
+  }
 
 
 }

@@ -1,5 +1,9 @@
 'use strict';
 
+
+var initTime = Date.now();
+
+
 angular.module('trusteesApp', [
   'ngCookies',
   'ngResource',
@@ -22,13 +26,16 @@ angular.module('trusteesApp', [
     //      need this to target individual transitions between two specific pages rather than always
     //      executing it on every page
     $stateProvider.decorator('data', function (state, parent) {
-      state.resolve.resolvePageTransitionClasses = ['$rootScope', '$q', 'Logger', function($rootScope, $q, Logger){
+      state.resolve.resolvePageTransitionClasses = ['$rootScope', '$q', 'Logger', '$timeout', function($rootScope, $q, Logger, $timeout){
 
         var logger = Logger.getLogger('resolvePageTransitionClasses:' + state.name);
-        logger.debug('resolving page transition body classes', Date.now());
+        var startTime = Date.now();
+        logger.debug('resolving page transition body classes:', state.name);
 
         return $rootScope.resolveTransitionClasses().then(function(){
-          logger.debug('resolving page transition body classes success', Date.now());
+          $timeout(function(){
+            logger.debug('resolving page transition body classes success:', state.name, Date.now() - startTime);
+          });
           return $q.when();
         });
       }];
@@ -89,7 +96,11 @@ angular.module('trusteesApp', [
       Logger.setDefaulLogLevel('debug');
     }
 
-    var logger = Logger.getLogger('trusteesApp:run - environment: ', environment);
+    var logger = Logger.getLogger('trusteesApp:run');
+
+    logger.debug('trusteesApp:run environment  : ', environment);
+    $timeout(function(){ logger.debug('trusteesApp:run initDuration : ', Date.now() - initTime); });
+
     var resolveTransitionClassesDeferred;
 
     $rootScope.resolveTransitionClasses = resolveTransitionClasses;
