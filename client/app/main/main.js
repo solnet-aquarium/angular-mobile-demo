@@ -6,7 +6,7 @@ angular.module('trusteesApp')
       .state('main', {
         url: '/',
         authenticate: true,
-        enableMenuButton: false,
+        enableMenuButton: true,
         navigationTitle: 'Trustees',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'

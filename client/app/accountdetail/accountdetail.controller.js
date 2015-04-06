@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('AccountdetailCtrl', function ($scope, accountdetail, $mdBottomSheet, $timeout, $mdDialog) {
+  .controller('AccountdetailCtrl', function ($scope, accountdetail, $mdBottomSheet, $timeout, $rootScope) {
 
 
     accountdetail.getTransactions().then(function success(transactions){
@@ -10,7 +10,8 @@ angular.module('trusteesApp')
 
 
     $scope.transactionDialog = undefined;
-    $scope.openTransaction = _.debounce(openTransaction, 150, true);
+
+    $scope.openTransaction = _.debounce(openTransaction, 20, false);
 
 
     return;

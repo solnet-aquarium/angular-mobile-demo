@@ -37,7 +37,7 @@ angular.module('trusteesApp')
       .state('settings', {
         url: '/settings',
         navigationTitle: 'Settings',
-        enableMenuButton: false,
+        enableMenuButton: true,
         enableBackButton: true,
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',

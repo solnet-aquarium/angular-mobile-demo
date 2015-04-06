@@ -1,11 +1,16 @@
 <header class="nav" ng-controller="NavbarCtrl">
 
-  <md-button aria-label="Navigate back" class="nav-button nav-button-back" ng-if="enableBackButton" ng-click="::historyBack()"><i class="fa fa-2x fa-arrow-left"></i></md-button>
+  <md-button aria-label="Navigate back" class="nav-button nav-button-back" ng-if="enableBackButton" ng-click="::historyBack($event)">
+    <i class="fa fa-2x fa-arrow-left"></i>
+  </md-button>
 
   <span class="nav-title">
     <h3>{{ ::navigationTitle}}</h3>
   </span>
 
-  <md-button aria-label="Toggle side menu" class="nav-button nav-button-menu" ng-if="enableMenuButton" ng-click="::goHome()"><i class="fa fa-2x fa-home"></i></md-button>
+
+  <md-button aria-label="Toggle side menu" class="nav-button nav-button-menu" ng-if="enableMenuButton" ng-click="::toggleMenu($event)">
+    <i class="fa fa-2x fa-bars"></i>
+  </md-button>
 
 </header>

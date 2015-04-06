@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('LoginCtrl', function ($scope, Auth, $state, $rootScope) {
+  .controller('LoginCtrl', function ($scope, Auth, $state, $rootScope, Logger) {
+
+
+    var logger = Logger.getLogger($scope.controllerName);
 
     $scope.errors = {};
 
@@ -10,9 +13,8 @@ angular.module('trusteesApp')
     $scope.user = {};
     $scope.user.email = $rootScope.temporaryLoginUser || '';
 
-
-    $scope.login = _.debounce(login, 50, true);
-    $scope.quickAccess = _.debounce(quickAccess, 50, true);
+    $scope.login = _.debounce(login, 20, true);
+    $scope.quickAccess = _.debounce(quickAccess, 20, true);
 
 
     return;
@@ -21,7 +23,10 @@ angular.module('trusteesApp')
      *
      * @param form
      */
-    function login(form) {
+    function login($event, form) {
+
+      logger.debug(arguments);
+
       $scope.submitted = true;
 
       if(form.$valid) {
@@ -35,7 +40,7 @@ angular.module('trusteesApp')
      *
      * @param email
      */
-     function quickAccess(email){
+     function quickAccess($event, email){
       $rootScope.openQuickaccess(email);
     }
 

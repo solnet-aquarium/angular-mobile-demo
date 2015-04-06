@@ -12,11 +12,12 @@ if (!angular.module('trusteesApp')
       $scope.error = undefined;
       $scope.success = undefined;
       $scope.active = undefined;
-      $scope.clearPin = _.debounce(clearPin, 60, true);
-      $scope.back = _.debounce(back, 50, true);
-      $scope.pin = '';
 
-      $scope.throttlePinDigit = _.debounce(addPinDigit, 30, true);
+      $scope.clearPin = _.debounce(clearPin, 20, true);
+      $scope.back = _.debounce(back, 20, true);
+
+      $scope.pin = '';
+      $scope.throttlePinDigit = _.debounce(addPinDigit, 20, true);
 
       var supportsVibrate = 'vibrate' in navigator;
 
@@ -43,7 +44,7 @@ if (!angular.module('trusteesApp')
       /**
        *
        */
-      function clearPin() {
+      function clearPin($event) {
         $scope.pin = '';
 
       }
@@ -70,7 +71,7 @@ if (!angular.module('trusteesApp')
       /**
        *
        */
-      function back() {
+      function back($event) {
         logger.debug('quick access ctrl back');
 
         $window.history.back();
@@ -81,7 +82,7 @@ if (!angular.module('trusteesApp')
        */
       function addPinDigit(digit) {
 
-        logger.debug('adding pin digit');
+        logger.debug('adding pin digit', digit);
 
         if ($scope.pin.length > 4) {
           if ($scope.error) {

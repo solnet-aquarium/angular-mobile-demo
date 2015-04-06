@@ -5,6 +5,7 @@ angular.module('trusteesApp', [
   'ngResource',
   'ngSanitize',
   'ngAnimate',
+  'ngTouch',
   'btford.socket-io',
   'ngMaterial',
   'ui.router'
@@ -90,8 +91,6 @@ angular.module('trusteesApp', [
 
     var logger = Logger.getLogger('trusteesApp:run - environment: ', environment);
     var resolveTransitionClassesDeferred;
-
-    FastClick.attach(document.body);
 
     $rootScope.resolveTransitionClasses = resolveTransitionClasses;
     $rootScope.openQuickaccess = openQuickaccess;
@@ -180,7 +179,6 @@ angular.module('trusteesApp', [
       Auth.setQuickAccessUser(email);
       $state.go('quickaccess');
     }
-
 
 
 

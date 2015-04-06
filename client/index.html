@@ -9,7 +9,7 @@
     <base href="/">
     <title></title>
     <meta name="description" content="">
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
@@ -28,18 +28,13 @@
     <![endif]-->
 
 
+      <md-content class="md-content">
+          <div class="mainview {{ ::controllerName}}" ui-view=""></div>
+      </md-content>
 
-
-
-    <!-- TODO add draggable nav drawer-->
-
-
-      <div class="mainviewcontainer">
-        <div class="mainview {{ ::controllerName}}" ui-view=""></div>
-      </div>
-
-
-
+      <md-sidenav md-component-id="right" class="md-sidenav-right md-sidenav md-closed">
+        Right Nav!
+      </md-sidenav>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -70,6 +65,7 @@
       <script src="bower_components/angular-animate/angular-animate.js"></script>
       <script src="bower_components/angular-aria/angular-aria.js"></script>
       <script src="bower_components/angular-material/angular-material.js"></script>
+      <script src="bower_components/angular-touch/angular-touch.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -92,7 +88,6 @@
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/main/main.service.js"></script>
-          <script src="components/FastClick/FastClick.vendor.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/auth/user.service.js"></script>
           <script src="components/logger/logger.js"></script>

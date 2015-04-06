@@ -3,7 +3,7 @@
 <div class="blocklist">
   <div class="blocklist-item">
 
-    <form class="form form-login" name="form" novalidate>
+    <form class="form form-login" name="form" novalidate ng-submit="login($event, form)">
 
       <div class="form-group form-group-input">
         <md-input-container>
@@ -27,7 +27,7 @@
         <!--<p class="help-block">{{ errors.other }}</p>-->
       <!--</div>-->
 
-      <md-button md-ripple-size="partial" class="md-raised md-primary md-button md-default-theme" ng-click="login(form)" type="submit">
+      <md-button class="md-raised md-primary md-button md-default-theme" ng-click="login($event, form)" type="submit">
         Login
       </md-button>
     </form>
@@ -35,7 +35,7 @@
 
 
   <div class="blocklist-item" ng-if="previousLogins" ng-repeat="previousLogin in previousLogins track by $index">
-    <md-button md-ripple-size="partial" class="md-button md-raised" ng-click="quickAccess(previousLogin)" >{{ ::previousLogin}}</md-button>
+    <md-button class="md-button md-raised" ng-click="quickAccess($event, previousLogin)" >{{ ::previousLogin}}</md-button>
   </div>
 
 

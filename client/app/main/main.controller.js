@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('trusteesApp')
-  .controller('MainCtrl', function ($scope, $http, socket, main, $state, Auth, $timeout, Logger) {
+  .controller('MainCtrl', function ($scope, $http, socket, main, $state, Auth, $timeout, Logger, $rootScope) {
 
 
     var logger = Logger.getLogger($scope.controllerName);
@@ -13,8 +13,8 @@ angular.module('trusteesApp')
     });
 
 
-    $scope.navigateTo = navigateTo;
-    $scope.logout = logout;
+    $scope.navigateTo = _.debounce(navigateTo, 20, true);
+    $scope.logout = _.debounce(logout, 20, true);
 
 
     return;
