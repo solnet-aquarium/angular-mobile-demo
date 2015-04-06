@@ -2,10 +2,7 @@
 
 
 <div class="mainlist">
-  <!--<a href="/accounttransactiondetail/{{::transaction.id}}" tooltip="{{::transaction.info}}" ng-repeat="transaction in ::transactions">-->
-  <a  ng-repeat="transaction in ::transactions">
-    <md-button >{{ ::transaction.title}}</md-button>
-  </a>
+  <md-button ng-repeat="transaction in ::transactions" ng-click="openTransaction(transaction)">{{ ::transaction.title}}</md-button>
 </div>
 
 
