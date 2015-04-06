@@ -47,7 +47,7 @@ angular.module('trusteesApp')
             $timeout(function(){
               action();
             }, 175);
-          }, 100)
+          }, 100);
 
         }
 
