@@ -3,11 +3,11 @@
 
 <div class="mainlist">
 
-  <md-button ng-click="navigateTo(item.state)" ng-repeat="item in items track by $index">
+  <md-button md-ripple-size="partial" ng-click="navigateTo(item.state)" ng-repeat="item in items track by $index">
     <span><i class="fa {{::item.icon}}"></i></span>
     <span>{{ ::item.name}}</span>
   </md-button>
-  <md-button ng-click="logout()" >
+  <md-button md-ripple-size="partial" ng-click="logout()" >
     <span><i class="fa fa-power-off"></i></span>
     <span>Logout</span>
   </md-button>

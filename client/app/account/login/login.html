@@ -27,7 +27,7 @@
         <!--<p class="help-block">{{ errors.other }}</p>-->
       <!--</div>-->
 
-      <md-button class="md-raised md-primary md-button md-default-theme" ng-click="login(form)" type="submit">
+      <md-button md-ripple-size="partial" class="md-raised md-primary md-button md-default-theme" ng-click="login(form)" type="submit">
         Login
       </md-button>
     </form>
@@ -35,7 +35,7 @@
 
 
   <div class="blocklist-item" ng-if="previousLogins" ng-repeat="previousLogin in previousLogins track by $index">
-    <md-button class="md-button md-raised" ng-click="quickAccess(previousLogin)" >{{ ::previousLogin}}</md-button>
+    <md-button md-ripple-size="partial" class="md-button md-raised" ng-click="quickAccess(previousLogin)" >{{ ::previousLogin}}</md-button>
   </div>
 
 

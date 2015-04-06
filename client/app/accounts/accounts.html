@@ -4,7 +4,7 @@
 
 <div class="mainlist">
   <a href="/accountdetail/{{::account.id}}" tooltip="{{::account.info}}" ng-repeat="account in ::accounts">
-    <md-button>{{ ::account.title}}</md-button>
+    <md-button md-ripple-size="partial">{{ ::account.title}}</md-button>
   </a>
 </div>
 
